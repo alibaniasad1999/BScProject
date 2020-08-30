@@ -15,6 +15,7 @@ x_hzero = [11; 0];
 p_zero = (x_zero-x_hzero)*(x_zero'-x_hzero');
 p_pri = A*p_zero*A';
 K = p_pri*C'*(C*p_pri*C'+R);
+y = x_zero;
 %%
 %x_hzero_pos = x_hzero + K(x_zero-C*x_hzero);
 %x1_pri = A*x_hzero_pos+B*u;
