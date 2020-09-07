@@ -1,21 +1,22 @@
 %% Kalman Filter
 %% initial
 m = 10;
-b = 2;
-k = 2;
-u = 10;
-A = [1 0;...
-    k/m b/m];
-B = [0; 1];
-C = [1 0];
+b = 5;
+k = 5;
+u =0;
+A = [0 1;...
+    -k/m -b/m];
+B = [0; 1/m];
+C = [0 1];
 D = 0;
-R = 1;
-x_zero = [10; 0];
-x_hzero = [13; 1];
+R = 10;
+x_zero = [-10; 0];
+x_hzero = [-15 0; 0 0];
 p_zero = (x_zero-x_hzero)*(x_zero'-x_hzero');
-p_pri = A*p_zero*A';
-K = p_pri*C'*(C*p_pri*C'+R);
-y = x_zero(1);
+Q = diag([0.1 0]);
+% p_pri = A*p_zero*A';
+% K = p_pri*C'*(C*p_pri*C'+R);
+% y = x_zero(1);
 %%
 %x_hzero_pos = x_hzero + K(x_zero-C*x_hzero);
 %x1_pri = A*x_hzero_pos+B*u;
